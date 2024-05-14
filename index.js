@@ -1,3 +1,9 @@
-const originalObject = { name: "Alice", age: 30 };
-const clonedObject = JSON.parse(JSON.stringify(originalObject));
-console.log(clonedObject); // { name: "Alice", age: 30 }
+function isSymmetric(root) {
+  if (!root) return true;
+  return isMirror(root.left, root.right);
+  function isMirror(left, right) {
+    if (!left && !right) return true;
+    if (!left || !right || left.val !== right.val) return false;
+    return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+  }
+}
